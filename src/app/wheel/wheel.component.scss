@@ -1,0 +1,48 @@
+#wheelOfFortune {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+#wheel {
+  display: block;
+  width: 800px;
+  height: 800px;
+  text-align: center; /* Center align the text */
+  word-wrap: break-word; /* Allow breaking words if necessary */
+  overflow-wrap: break-word;
+}
+
+#spin {
+  font: 1em/0 sans-serif;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  margin: -15%;
+  background: #fff;
+  color: #fff;
+  box-shadow: 0 0 0 8px currentColor, 0 0px 15px 5px rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  transition: 0.8s;
+  text-align: center; /* Center align the text */
+  padding: 10px; /* Add padding for better text fitting */
+  white-space: pre-wrap; /* Ensure text wraps onto multiple lines */
+  overflow-wrap: break-word; /* Ensure long words are wrapped */
+  word-wrap: break-word; /* Ensure long words are wrapped */
+}
+
+#spin::after {
+  content: "";
+  position: absolute;
+  top: -17px;
+  border: 10px solid transparent;
+  border-bottom-color: currentColor;
+  border-top: none;
+}

@@ -1,0 +1,35 @@
+<mat-card class="dialog-card winner-card">
+  <div class="image-container">
+    <img mat-card-image [src]="'../../../../assets/player-images/' + data.value.image" alt="{{data.value.name}}">
+  </div>
+
+  <mat-card-content>
+    <h2 class="winner-name">{{data.value.name}}</h2>
+    <p class="winner-detail">
+      <strong>Age:</strong> {{data.value.age}}
+    </p>
+    <p class="winner-detail">
+      <strong>Position:</strong> {{data.value.position}}
+    </p>
+    <p class="winner-detail">
+      <strong>Additional Info:</strong> {{data.value.additionalInfo}}
+    </p>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Team</mat-label>
+      <mat-select>
+        <mat-option value="option1">Team A</mat-option>
+        <mat-option value="option2">Team B</mat-option>
+        <mat-option value="option3">Team C</mat-option>
+        <mat-option value="option4">Team D</mat-option>
+        <mat-option value="option5">Team E</mat-option>
+        <mat-option value="option6">Team F</mat-option>
+        <mat-option value="option7">Team G</mat-option>
+        <mat-option value="option8">Team H</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button color="primary" (click)="onSold()">Sold</button>
+    <button mat-button color="warn" (click)="onUnsold()">Unsold</button>
+  </mat-card-actions>
+</mat-card>
