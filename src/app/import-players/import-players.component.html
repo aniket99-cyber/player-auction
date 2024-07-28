@@ -1,0 +1,42 @@
+<div class="dialog-container">
+  <h1 class="dialog-title">Import Players</h1>
+  <div class="dialog-content">
+    <input type="file" (change)="onFileChange($event)" accept=".csv" />
+    @if (players.length > 0) {
+      <div class="preview">
+        <h3 class="preview-title">Preview:</h3>
+        <table class="preview-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Image</th>
+              <th>Batch</th>
+              <th>Team</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (player of players; track $index) {
+              <tr>
+                <td>{{ player.id }}</td>
+                <td>{{ player.name }}</td>
+                <td>{{ player.position }}</td>
+                <td>{{ player.image }}</td>
+                <td>{{ player.batch }}</td>
+                <td>{{ player.team }}</td>
+                <td>{{ player.points }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+  <div class="dialog-actions">
+    <button class="btn clear" (click)="closeDialog()">Cancel</button>
+    <button class="btn confirm" (click)="importPlayers()">Import</button>
+  </div>
+</div>
+

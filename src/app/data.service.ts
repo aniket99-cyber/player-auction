@@ -7,15 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 
 export class DataService {
-  private _defaultOpts: any[] = [
-    { id:1, name: 'Lionel Messi', age: 35, position: 'Striker', additionalInfo: 'Loves hiking', image:'messi.png', team: 0, points:0  },
-    { id:2, name: 'Cristiano Ronaldo', age: 38, position: 'Striker', additionalInfo: 'Enjoys painting', image:'ronaldo.png', team: 0, points:0 },
-    { id:3, name: 'Neymar', age: 32, position: 'Striker', additionalInfo: 'Avid reader', image:'neymar.png', team: 0, points:0 },
-    { id:4, name: 'Robert Lewandowski', age: 35, position: 'Striker', additionalInfo: 'Gourmet chef', image:'lewandoski.png', team: 0, points:0 },
-    { id:5, name: 'Kylian Mbappé', age: 24, position: 'Striker', additionalInfo: 'Plays guitar', image:'mbappe.png', team: 0, points:0 },
-    { id:6, name: 'Kevin De Bruyne', age: 30, position: 'Mid-fielder', additionalInfo: 'Yoga enthusiast', image:'debrunye.png', team: 0, points:0 },
-    { id:7, name: 'Virgil van Dijk', age: 30, position: 'Defender', additionalInfo: 'Diverse interests', image:'van-dik.png', team: 0, points:0 },
-  ];
+  private _defaultOpts: any[] = [];
 
   teams: any[] = [
     {
@@ -169,5 +161,11 @@ export class DataService {
   resetToDefault(): void {
     this.optionSource.next(this._defaultOpts);
     this.persistOptions();  // Ensure default options are also persisted
+  }
+
+  updateDefaultOptions(newOptions: any[]): void {
+    this._defaultOpts = newOptions;
+    this.optionSource.next(newOptions);  // Update the BehaviorSubject
+    this.persistOptions();  // Persist the new options in local storage
   }
 }
