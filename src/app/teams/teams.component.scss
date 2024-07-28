@@ -1,0 +1,121 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  height: 100vh; /* Ensure the main container takes full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #d80027;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.content {
+  flex-grow: 1; /* Allow the content area to grow and take available space */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.teams-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.team-card {
+  width: 300px;
+  border: 2px solid #d80027;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  background-color: #fff;
+  margin: 50px;
+}
+
+.team-header {
+  background-color: #d80027;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.team-logo img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.team-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.team-body {
+  padding: 10px;
+}
+
+.team-body h3 {
+  background-color: #d80027;
+  color: #fff;
+  padding: 5px;
+  margin: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.team-body ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-body li {
+  padding: 5px;
+  border-bottom: 1px solid #d80027;
+}
+
+.team-body li:last-child {
+  border-bottom: none;
+}
+
+.coach {
+  margin-top: 10px;
+}
+
+.coach h3 {
+  margin: 5px 0;
+}
+
+.coach p {
+  padding: 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #d80027;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.remaining-amount {
+  margin-top: 10px;
+}
+
+.remaining-amount h3 {
+  margin: 5px 0;
+}
+
+.remaining-amount p {
+  padding: 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #d80027;
+  border-radius: 5px;
+  text-align: center;
+}

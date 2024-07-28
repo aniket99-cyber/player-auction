@@ -1,7 +1,13 @@
-<div style="display: flex; justify-content: center; align-items: center; margin: 100px;">
-  <app-wheel *ngIf="(dataService.option$ | async) as options; else loading" [options]="options"></app-wheel>
-</div>
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-heading">
+      <h1>Welcome To Prestige Cup Season- 6</h1>
+    </div>
+    <ul class="navbar-menu">
+      <li [routerLink]="['/teams']" routerLinkActive="router-link-active"><a>Teams</a></li>
+      <li [routerLink]="['/']" routerLinkActive="router-link-active"><a>Auction</a></li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
 
-<ng-template #loading>
-  <div>Loading...</div>
-</ng-template>

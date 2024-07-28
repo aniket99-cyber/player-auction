@@ -1,0 +1,45 @@
+<div class="main-container">
+  <div class="header">
+    Teams Overview
+  </div>
+  <div class="content">
+    <div class="teams-container">
+      @for (team of teams; track $index) {
+        <div class="team-card">
+          <div class="team-header">
+            <div class="team-logo">
+              <img [src]="team.logo" alt="Team Logo">
+            </div>
+            <div class="team-name">{{ team.name }}</div>
+          </div>
+          <div class="team-body">
+            <div class="coach">
+              <h3>Captain</h3>
+              <p>{{ team.captain }}</p>
+            </div>
+
+            <div class="starting-xi">
+              <h3>Players</h3>
+              <ul>
+                @for (player of team.players; track $index) {
+                  <li>{{ $index + 1 }}. {{ player.name }} - Sold at {{ player.points }} points</li>
+                }
+
+              </ul>
+            </div>
+            <div class="coach">
+              <h3>Owners</h3>
+              <p>{{ team.coach }}</p>
+            </div>
+            <div class="remaining-amount">
+              <h3>Remaining Amount</h3>
+              <p>{{team.remainingAmount}}</p>
+            </div>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>
+

@@ -46,3 +46,11 @@
   border-bottom-color: currentColor;
   border-top: none;
 }
+
+
+::ng-deep{
+  .custom-dialog-container .mat-dialog-container {
+    border-radius: 16px; /* Adjust the value as needed */
+  }
+}
+

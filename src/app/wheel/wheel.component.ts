@@ -111,8 +111,6 @@ export class WheelComponent implements AfterViewInit, DoCheck {
   }
 
   rotate(first = false) {
-    console.log(this.angVel);
-
     if (!this.ctx || !this.spin) return;
 
     const index = this.getIndex();
@@ -161,17 +159,17 @@ export class WheelComponent implements AfterViewInit, DoCheck {
 
   addNewWinner(value: any) {
     const dialogRef = this.dialog.open(PlayerCardComponent, {
-      width: '700px',
-      height: '800px',
+      width: '800px',
+      panelClass: 'custom-dialog-container',
       data: { value }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'sold') {
-        this.dataService.addWinner(value); // Handle "Sold"
         if (this.spin) {
           this.spin.nativeElement.textContent = this.sectors[this.lastSelection].label.name;
           this.sectors.splice(this.lastSelection, 1);
+          this.dataService.deleteOption(value)
           setTimeout(() => {
             this.createWheel();
           }, 1200);
@@ -181,6 +179,7 @@ export class WheelComponent implements AfterViewInit, DoCheck {
         if (this.spin) {
           this.spin.nativeElement.textContent = this.sectors[this.lastSelection].label.name;
           this.sectors.splice(this.lastSelection, 1);
+          this.dataService.deleteOption(value)
           setTimeout(() => {
             this.createWheel();
           }, 1200);

@@ -1,35 +1,41 @@
-<mat-card class="dialog-card winner-card">
-  <div class="image-container">
-    <img mat-card-image [src]="'../../../../assets/player-images/' + data.value.image" alt="{{data.value.name}}">
+<mat-card class="player-card">
+  <div class="player-header">
+    <img class="team-logo" src="../../assets/hlps-alumni.png" alt="Team Logo">
+    <div class="player-info">
+      <h2 class="player-name">{{data.value.name}}</h2>
+      <p class="player-class">Class of 2023</p>
+      <p class="player-school">Adams HS</p>
+    </div>
   </div>
 
-  <mat-card-content>
-    <h2 class="winner-name">{{data.value.name}}</h2>
-    <p class="winner-detail">
-      <strong>Age:</strong> {{data.value.age}}
-    </p>
-    <p class="winner-detail">
-      <strong>Position:</strong> {{data.value.position}}
-    </p>
-    <p class="winner-detail">
-      <strong>Additional Info:</strong> {{data.value.additionalInfo}}
-    </p>
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Team</mat-label>
-      <mat-select>
-        <mat-option value="option1">Team A</mat-option>
-        <mat-option value="option2">Team B</mat-option>
-        <mat-option value="option3">Team C</mat-option>
-        <mat-option value="option4">Team D</mat-option>
-        <mat-option value="option5">Team E</mat-option>
-        <mat-option value="option6">Team F</mat-option>
-        <mat-option value="option7">Team G</mat-option>
-        <mat-option value="option8">Team H</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-card-content>
-  <mat-card-actions align="end">
+  <div class="player-body">
+    <img class="player-image" [src]="'../../../../assets/player-images/' + data.value.image" alt="{{data.value.name}}">
+    <div class="player-stats">
+      <p><strong>Age:</strong> {{data.value.age}}</p>
+      <p><strong>Weight:</strong> 150 lbs</p>
+      <p><strong>Height:</strong> 5'7"</p>
+      <p><strong>Appearances:</strong> 19</p>
+      <p><strong>Goals:</strong> 20</p>
+      <p><strong>Shooting Accuracy:</strong> 60%</p>
+      <p><strong>Passing Accuracy:</strong> 75%</p>
+      <p><strong>Overlapping Run:</strong> 25</p>
+      <div class="form-group">
+        <label for="team">Team</label>
+        <select id="team" class="form-control" [(ngModel)]="teamId">
+          @for (team of dataService.teams; track $index) {
+            <option [value]="team.id">{{team.name}}</option>
+          }
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="points">Points</label>
+        <input id="points" [(ngModel)]="points" type="number" class="form-control" min="0">
+      </div>
+    </div>
+  </div>
+
+  <div class="player-footer">
     <button mat-button color="primary" (click)="onSold()">Sold</button>
     <button mat-button color="warn" (click)="onUnsold()">Unsold</button>
-  </mat-card-actions>
+  </div>
 </mat-card>

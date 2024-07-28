@@ -1,0 +1,7 @@
+<div style="display: flex; justify-content: center; align-items: center; margin: 30px;">
+  <app-wheel *ngIf="(dataService.option$ | async) as options; else loading" [options]="options"></app-wheel>
+</div>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
