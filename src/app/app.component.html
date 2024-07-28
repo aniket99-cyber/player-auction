@@ -1,13 +1,9 @@
-<nav class="navbar">
-  <div class="navbar-container">
-    <div class="navbar-heading">
-      <h1>Welcome To Prestige Cup Season- 6</h1>
-    </div>
-    <ul class="navbar-menu">
-      <li [routerLink]="['/teams']" routerLinkActive="router-link-active"><a>Teams</a></li>
-      <li [routerLink]="['/']" routerLinkActive="router-link-active"><a>Auction</a></li>
-    </ul>
+<app-navbar></app-navbar>
+<div class="main">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
-</nav>
-<router-outlet></router-outlet>
+</div>
+
 

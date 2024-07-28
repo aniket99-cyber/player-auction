@@ -1,0 +1,64 @@
+.overview .header {
+  margin-bottom: 20px;
+}
+
+.overview .header .match-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overview .header .teams {
+  display: flex;
+  gap: 10px;
+}
+
+.overview .header .date-time {
+  text-align: right;
+}
+
+.overview .content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.overview .stats {
+  display: flex;
+  gap: 20px;
+}
+
+.overview .stat-card {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  text-align: center;
+}
+
+.overview .match-summary {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.overview .match-summary .summary-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.overview .highlights {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.overview .league-standing {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
