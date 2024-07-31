@@ -21,12 +21,12 @@ export class ImportPlayersComponent {
         header: true,
         complete: (results) => {
           this.players = results.data
-            .filter((row: any) => row.ID && row.NAME) // Only include rows with id and name
+            .filter((row: any) => row.ID && row.NAME)
             .map((row: any) => ({
               id: Number(row.ID),
               name: row.NAME,
               position: row.POSITION || '',
-              image: row.IMAGE || '',
+              image: this.generateCloudinaryUrl(row.IMAGE) || '',
               batch: row.BATCH || '',
               team: row.TEAMID || 0,
               points: Number(row.POINTS) || 0
@@ -38,6 +38,16 @@ export class ImportPlayersComponent {
         }
       });
     }
+  }
+
+  generateCloudinaryUrl(imageName: string): string {
+    return `https://res.cloudinary.com/dznw7lroa/image/upload/${imageName}`;
+  }
+
+   // Utility method to extract the file name from the URL
+  extractFileId(url: string): string {
+    const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    return match ? match[1] : '';
   }
 
   closeDialog(): void {

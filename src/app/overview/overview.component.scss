@@ -1,64 +1,145 @@
-.overview .header {
+/* Ensure the entire overview section fits the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Header styles */
+.header {
   margin-bottom: 20px;
 }
 
-.overview .header .match-info {
+.header h1 {
+  font-size: 30px;
+}
+
+.header .match-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.overview .header .teams {
+.header .teams {
   display: flex;
   gap: 10px;
+  font-size: 18px;
 }
 
-.overview .header .date-time {
+.header .date-time {
   text-align: right;
+  font-size: 18px;
 }
 
-.overview .content {
+/* Content wrapper to handle overflow */
+.content-wrapper {
+  flex: 1; /* Take remaining space */
+  overflow-y: auto; /* Vertical scrolling if needed */
+  padding: 20px; /* Padding to avoid content touching edges */
+}
+
+/* Content styles */
+.content {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.overview .stats {
+/* Stats, match-summary, highlights, etc. */
+.stats,
+.match-summary,
+.highlights,
+.league-standing {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
   display: flex;
   gap: 20px;
 }
 
-.overview .stat-card {
-  background-color: #1a1a1a;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  text-align: center;
+.stat-card,
+.match-summary,
+.highlights,
+.league-standing {
+  flex: 1; /* Allow them to grow */
 }
 
-.overview .match-summary {
-  background-color: #1a1a1a;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.overview .match-summary .summary-details {
+.match-summary .summary-details {
   display: flex;
   justify-content: space-between;
 }
 
-.overview .highlights {
+/* Table container for scrollable table */
+.table-container {
   background-color: #1a1a1a;
   border-radius: 10px;
-  padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 100%; /* Prevent overflow */
 }
 
-.overview .league-standing {
+.table-container h3 {
+  color: orange;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+/* Wrapper for table to handle overflow */
+.table-wrapper {
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto; /* Vertical scrolling if needed */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
   background-color: #1a1a1a;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+td {
+  background-color: #2e2e2e;
+  color: #fff;
+  border-bottom: 1px solid #444;
+}
+
+tr:nth-child(even) td {
+  background-color: #2e2e2e;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  th, td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
 }

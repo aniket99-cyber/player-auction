@@ -84,13 +84,13 @@ export class DataService {
     }
   ]
 
-  private optionSource = new BehaviorSubject<any[]>(this.getOptions());
+  public optionSource = new BehaviorSubject<any[]>(this.getOptions());
   option$ = this.optionSource.asObservable();
 
-  private winnersSource = new BehaviorSubject<any[]>([]);
+  public winnersSource = new BehaviorSubject<any[]>([]);
   winner$: Observable<string[]> = this.winnersSource.asObservable();
 
-  private UnsoldSource = new BehaviorSubject<any[]>([]);
+  public UnsoldSource = new BehaviorSubject<any[]>([]);
   unsold$: Observable<any[]> = this.UnsoldSource.asObservable();
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {

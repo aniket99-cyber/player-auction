@@ -1,6 +1,16 @@
+@mixin gradient-text($start-color, $end-color) {
+  background: linear-gradient(to right, $start-color, $end-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Define your colors
+$start-color: #ff7e5f;
+$end-color: #feb47b;
+
 .sidebar {
   width: 210px;
-  background-color: #1a1a1a;
+  background: linear-gradient(180deg, #000000 0%, #434343 100%);
   padding: 20px;
   padding-top: 105px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -10,11 +20,14 @@
   left: 0;
 }
 
-.sidebar{
-  h2{
-    color: rgb(255, 166, 0);
+.sidebar {
+  h2 {
+    @include gradient-text($start-color, $end-color);
+    font-size: 26px;
+    font-weight: 500;
   }
 }
+
 
 .sidebar-header {
 

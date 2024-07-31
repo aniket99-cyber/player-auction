@@ -1,45 +1,77 @@
 <div class="overview">
   <div class="header">
-    <h1>Welcome To <strong>Prestige Cup- Season-6</strong> </h1>
+    <h1><strong>Welcome To Prestige Cup- Season-6</strong> </h1>
     <div class="match-info">
       <div class="teams">
-        <span>Powered by</span>
-        <span>HLPS ALUMNI</span>
-        <span>ASSOCIATION</span>
+        <span> <strong>Powered by</strong></span>
+        <span><strong>HLPS ALUMNI ASSOCIATION</strong></span>
+        <span></span>
       </div>
       <div class="date-time">
-        <span>Fri 17 June 2022</span>
-        <span>20:00</span>
+        <span><strong>Fri 17 June 2022</strong></span>
+        <span><strong> 20:00</strong></span>
       </div>
     </div>
   </div>
-  <div class="content">
-    <div class="stats">
-      <div class="stat-card">
-        <h3>Game Overview</h3>
-        <!-- Insert Game Overview Chart -->
+
+  <div class="content-wrapper">
+    <div class="content">
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Game Overview</h3>
+          <!-- Insert Game Overview Chart -->
+        </div>
+        <div class="stat-card">
+          <h3>Player of the Month</h3>
+          <img src="path/to/player-image.png" alt="Player of the Month">
+          <span>Marcus Rashford</span>
+        </div>
       </div>
-      <div class="stat-card">
-        <h3>Player of the Month</h3>
-        <img src="path/to/player-image.png" alt="Player of the Month">
-        <span>Marcus Rashford</span>
+      <div class="match-summary">
+        <h3>Last Match</h3>
+        <div class="summary-details">
+          <span>UTD 3 - 0 LFC</span>
+          <span>64% Possession</span>
+          <span>36% Possession</span>
+        </div>
       </div>
-    </div>
-    <div class="match-summary">
-      <h3>Last Match</h3>
-      <div class="summary-details">
-        <span>UTD 3 - 0 LFC</span>
-        <span>64% Possession</span>
-        <span>36% Possession</span>
+      <div class="highlights">
+        <h3>Highlights</h3>
+        <!-- Insert Highlights -->
       </div>
-    </div>
-    <div class="highlights">
-      <h3>Highlights</h3>
-      <!-- Insert Highlights -->
-    </div>
-    <div class="league-standing">
-      <h3>League Standing</h3>
-      <!-- Insert League Standing Table -->
+      <div class="table-container">
+        <h3>Sold Players Overview</h3>
+        <div class=" table-container table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Position</th>
+                <th>Points</th>
+                <th>Batch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Add rows here -->
+               @for (player of soldPlayers; track $index) {
+                <tr>
+                  <td><img [src]="player.image" alt="{{ player.name }}" width="50" /></td>
+                  <td>{{ player.name }}</td>
+                  <td>{{ getTeamName(player.team) }}</td>
+                  <td>{{ player.position }}</td>
+                  <td>{{ player.points }}</td>
+                  <td>{{ player.batch }}</td>
+                </tr>
+               }
+
+              <!-- Repeat rows as necessary -->
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
+
 </div>
