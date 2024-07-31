@@ -1,13 +1,8 @@
 /* Ensure the entire overview section fits the viewport */
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
 .overview {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Full viewport height */
+  height: 200dvh; /* Full viewport height */
 }
 
 /* Header styles */
@@ -95,7 +90,6 @@ html, body {
 
 /* Wrapper for table to handle overflow */
 .table-wrapper {
-  max-height: 400px; /* Adjust height as needed */
   overflow-y: auto; /* Vertical scrolling if needed */
 }
 

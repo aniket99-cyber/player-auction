@@ -12,4 +12,6 @@ body {
   margin-left: 280px; /* Adjust according to your sidebar width */
   padding: 55px;
   flex: 1;
+  height: 80vh;
+  overflow-y: auto;
 }
