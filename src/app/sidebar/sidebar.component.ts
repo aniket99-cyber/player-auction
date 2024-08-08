@@ -20,6 +20,7 @@ export class SidebarComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.dataService.updateDefaultOptions(result);
+        localStorage.removeItem('unsoldPlayers')
       }
     });
   }

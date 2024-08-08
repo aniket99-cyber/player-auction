@@ -27,6 +27,41 @@
           <span>Marcus Rashford</span>
         </div>
       </div>
+      @if (soldPlayers.length>0) {
+        <div class="table-container">
+          <h3>Sold Players Overview</h3>
+          <div class=" table-container table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Team</th>
+                  <th>Position</th>
+                  <th>Points</th>
+                  <th>Batch</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Add rows here -->
+                 @for (player of soldPlayers; track $index) {
+                  <tr>
+                    <td><img [src]="player.image" alt="{{ player.name }}" width="50" /></td>
+                    <td>{{ player.name }}</td>
+                    <td>{{ getTeamName(player.team) }}</td>
+                    <td>{{ player.position }}</td>
+                    <td>{{ player.points }}</td>
+                    <td>{{ player.batch }}</td>
+                  </tr>
+                 }
+
+                <!-- Repeat rows as necessary -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+
       <div class="match-summary">
         <h3>Last Match</h3>
         <div class="summary-details">
@@ -35,41 +70,44 @@
           <span>36% Possession</span>
         </div>
       </div>
+      @if (unSoldPlayers.length>0) {
+        <div class="table-container">
+          <h3>Unsold Players Overview</h3>
+          <div class=" table-container table-wrapper">
+            <div class="table-header">
+              <button class="download-btn csv-btn" (click)="downloadCSV()">Download CSV</button>
+              <button class="download-btn excel-btn" (click)="downloadExcel()">Download Excel</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Batch</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Add rows here -->
+                 @for (player of unSoldPlayers; track $index) {
+                  <tr>
+                    <td><img [src]="player.image" alt="{{ player.name }}" width="50" /></td>
+                    <td>{{ player.name }}</td>
+                    <td>{{ player.position }}</td>
+                    <td>{{ player.batch }}</td>
+                  </tr>
+                 }
+
+                <!-- Repeat rows as necessary -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+
       <div class="highlights">
         <h3>Highlights</h3>
         <!-- Insert Highlights -->
-      </div>
-      <div class="table-container">
-        <h3>Sold Players Overview</h3>
-        <div class=" table-container table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Team</th>
-                <th>Position</th>
-                <th>Points</th>
-                <th>Batch</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Add rows here -->
-               @for (player of soldPlayers; track $index) {
-                <tr>
-                  <td><img [src]="player.image" alt="{{ player.name }}" width="50" /></td>
-                  <td>{{ player.name }}</td>
-                  <td>{{ getTeamName(player.team) }}</td>
-                  <td>{{ player.position }}</td>
-                  <td>{{ player.points }}</td>
-                  <td>{{ player.batch }}</td>
-                </tr>
-               }
-
-              <!-- Repeat rows as necessary -->
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
   </div>

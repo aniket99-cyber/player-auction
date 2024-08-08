@@ -93,6 +93,8 @@ export class DataService {
   public UnsoldSource = new BehaviorSubject<any[]>([]);
   unsold$: Observable<any[]> = this.UnsoldSource.asObservable();
 
+  public unsoldPlayers:any=[]
+
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
       const storedTeams = localStorage.getItem('teams');
@@ -134,8 +136,9 @@ export class DataService {
   }
 
   addUnsold(value: any): void {
-    const unsold = [...this.UnsoldSource.getValue(), value];
-    this.UnsoldSource.next(unsold);
+    this.unsoldPlayers.push(value)
+    console.log(this.UnsoldSource.getValue());
+    localStorage.setItem('unsoldPlayers', JSON.stringify(this.unsoldPlayers))
   }
 
   restartWinners(): void {

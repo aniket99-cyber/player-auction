@@ -169,7 +169,7 @@ export class WheelComponent implements AfterViewInit, DoCheck {
 
   addNewWinner(value: any) {
     const dialogRef = this.dialog.open(PlayerCardComponent, {
-      width: '800px',
+      width: '900px',
       panelClass: 'custom-dialog-container',
       data: { value }
     });
