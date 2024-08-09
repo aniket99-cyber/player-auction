@@ -7,7 +7,7 @@
       @for (team of teams; track $index) {
         <div class="team-card">
           <div class="team-header">
-            <div class="team-logo">
+            <div class="team-logo" (click)="openTeamDialog(team)">
               <img [src]="team.logo" alt="Team Logo">
             </div>
             <div class="team-name">{{ team.name }}</div>
@@ -15,7 +15,7 @@
           <div class="team-body">
             <div class="coach">
               <h3>Captain</h3>
-              <p>{{ team.captain }}</p>
+              <p>{{ team.captain.name }}</p>
             </div>
 
             <div class="starting-xi">

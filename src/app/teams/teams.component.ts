@@ -1,5 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TeamDialogComponent } from '../team-dialog/team-dialog.component';
 import { DataService } from './../data.service';
 
 @Component({
@@ -12,7 +14,7 @@ import { DataService } from './../data.service';
 export class TeamsComponent {
   teams: any = [];
 
-  constructor(public dataService: DataService, @Inject(PLATFORM_ID) private platformId: Object){
+  constructor(public dataService: DataService, @Inject(PLATFORM_ID) private platformId: Object, public dialog: MatDialog){
     if (isPlatformBrowser(this.platformId)) {
       let teams: any[];
 
@@ -44,5 +46,13 @@ export class TeamsComponent {
     }
 
     return totalPoints;
+  }
+
+  openTeamDialog(team:any) {
+    this.dialog.open(TeamDialogComponent, {
+      width: '80%',
+      height: '80%',
+      data: team
+    });
   }
 }

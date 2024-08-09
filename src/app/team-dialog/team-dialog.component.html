@@ -1,0 +1,36 @@
+<div class="dialog-container">
+  <!-- Left Side: Owner Image and Name -->
+  <div class="owner">
+   @for (owner of teamData.owners; track $index) {
+      <img [src]="owner.image" alt="{{ owner.name }}" class="owner-image">
+      <p class="owner-name">{{owner.name }}</p>
+   }
+  </div>
+
+  <!-- Right Side: Players in Pyramid Structure -->
+  <div class="pyramid">
+    <!-- Captain at the Top -->
+    <div class="pyramid-row">
+      <div class="player captain">
+        <img [src]="teamData.captain.image" alt="{{ teamData.captain.name }}" class="player-image">
+        <p class="player-name">{{ teamData.captain.name }} (C)</p>
+      </div>
+    </div>
+
+    <!-- First Row with 2 Players -->
+    <div class="pyramid-row">
+      <div *ngFor="let player of arrangedPlayers[0]" class="player">
+        <img [src]="player.image" alt="{{ player.name }}" class="player-image">
+        <p class="player-name">{{ player.name }}</p>
+      </div>
+    </div>
+
+    <!-- Second Row with 2 Players -->
+    <div class="pyramid-row">
+      <div *ngFor="let player of arrangedPlayers[1]" class="player">
+        <img [src]="player.image" alt="{{ player.name }}" class="player-image">
+        <p class="player-name">{{ player.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

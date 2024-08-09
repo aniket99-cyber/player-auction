@@ -14,16 +14,16 @@ export class DataService {
       id:1,
       name: 'ROARING LIONS',
       logo: '../assets/Circle-Cut/ROARING LIONS.png',
-      captain: 'Soumyajit Sil Das',
+      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
-      owners: [],
+      owners: [{name:'Arpita Malakar', image:'../assets/OWNERS/ARPITA(1).png'},{name:'Arpita Malakar', image:'../assets/OWNERS/ARPITA(1).png'}],
       remainingAmount: 0
     },
     {
       id:2,
       name: 'DEMOLISHING EXTREMISTS',
       logo: '../assets/Circle-Cut/DEMOLISHING EXTREMISTS.png',
-      captain: 'Soumyajit Sil Das',
+      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
       owners: [],
       remainingAmount: 0
@@ -32,7 +32,7 @@ export class DataService {
       id:3,
       name: 'GLADIATORS',
       logo: '../assets/Circle-Cut/GLADIATORS.png',
-      captain: 'Soumyajit Sil Das',
+      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
       owners: [],
       remainingAmount: 0
@@ -41,7 +41,7 @@ export class DataService {
       id:4,
       name: 'NAUTICAL NINJAS',
       logo: '../assets/Circle-Cut/NAUTICAL NINJAS.png',
-      captain: 'Soumyajit Sil Das',
+      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
       owners: [],
       remainingAmount: 0
@@ -50,7 +50,7 @@ export class DataService {
       id:5,
       name: 'POWER PHEONIX',
       logo: '../assets/Circle-Cut/POWER PHEONIX.png',
-      captain: 'Soumyajit Sil Das',
+      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
       owners: [],
       remainingAmount: 0
@@ -59,7 +59,7 @@ export class DataService {
       id:6,
       name: 'PROWLING PANTHERS',
       logo: '../assets/Circle-Cut/PROWLING PANTHERS.png',
-      captain: 'Soumyajit Sil Das',
+      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
       owners: [],
       remainingAmount: 0
@@ -68,7 +68,7 @@ export class DataService {
       id:7,
       name: 'SPECIAL 7',
       logo: '../assets/Circle-Cut/SPECIAL 7.png',
-      captain: 'Soumyajit Sil Das',
+      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
       owners: [],
       remainingAmount: 0
@@ -77,7 +77,7 @@ export class DataService {
       id:8,
       name: 'TITANS',
       logo: '../assets/Circle-Cut/TITANS.png',
-      captain: 'Soumyajit Sil Das',
+      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
       owners: [],
       remainingAmount: 0

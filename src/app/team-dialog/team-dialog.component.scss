@@ -1,0 +1,101 @@
+.dialog-container {
+  display: flex;
+  justify-content: space-between; /* Space between owner and pyramid */
+  align-items: center;
+  height: 100%; /* Use full viewport height */
+  padding: 20px; /* Adjust padding */
+  box-sizing: border-box; /* Ensure padding doesn't affect the overall width */
+  background-image: url('../../assets/Football\ Sport\ Field.jpg');
+  background-size: cover; /* Cover the entire dialog container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background from repeating */
+  border-radius: 20px; /* Optional: Add rounded corners to the dialog */
+}
+
+.owner {
+  flex: 0 0 auto; /* Prevent resizing */
+  margin-right: 20px; /* Space between owner and pyramid */
+  text-align: center; /* Center the owner's content */
+}
+
+.owner-image {
+  width: 340px; /* Adjust as needed */
+  height: 350px;
+  border-radius: 15px; /* Square image with slightly rounded corners */
+  border: 3px solid #ddd;
+}
+
+.owner-name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 22px;
+  font-weight: 600;
+  color: azure;
+}
+
+.pyramid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Use full width of the container */
+  max-width: 600px; /* Restrict the maximum width of the pyramid */
+
+  .pyramid-row {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Increase margin for more spacing */
+
+    .player {
+      margin: 0 15px; /* Horizontal margin between players */
+      text-align: center;
+
+      .player-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%; /* Circular images */
+        border: 5px solid #000000;
+      }
+
+      .player-name {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 22px;
+        font-weight: 600;
+        color: azure;
+      }
+    }
+
+    .captain .player-image {
+      border-color: rgb(2, 2, 2); /* Highlight captain */
+      width: 250px; /* Adjusted to be more responsive */
+      height: 250px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dialog-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .owner {
+    margin-right: 0;
+    margin-bottom: 20px; /* Space below owner when stacked */
+  }
+
+  .pyramid {
+    max-width: 100%;
+  }
+
+  .pyramid-row .player .player-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pyramid-row .captain .player-image {
+    width: 150px;
+    height: 150px;
+  }
+}
