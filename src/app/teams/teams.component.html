@@ -27,10 +27,17 @@
 
               </ul>
             </div>
-            <div class="coach">
-              <h3>Owners</h3>
-              <p>{{ team.coach }}</p>
-            </div>
+
+              <div class="coach">
+                <h3>Owners</h3>
+                @for (owner of team.owners; track $index) {
+                  <p>{{ owner.name }}</p>
+                }
+              </div>
+
+
+
+
             <div class="remaining-amount">
               <h3>Remaining Amount</h3>
               <p>{{team.remainingAmount}}</p>

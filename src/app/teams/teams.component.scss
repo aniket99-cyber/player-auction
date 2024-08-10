@@ -18,6 +18,12 @@
   color: #e0e0e0;
 }
 
+h3{
+  color: rgba(207, 87, 87, 0.978);
+  font-size: large;
+  font-weight: bold;
+}
+
 .content {
   flex: 1; /* Take up the remaining space */
   overflow-y: auto; /* Enable vertical scrolling */
