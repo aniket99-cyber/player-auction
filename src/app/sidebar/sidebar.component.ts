@@ -15,7 +15,10 @@ export class SidebarComponent {
   constructor(public dialog: MatDialog, public dataService: DataService) {}
 
   openImportDialog(): void {
-    const dialogRef = this.dialog.open(ImportPlayersComponent);
+    const dialogRef = this.dialog.open(ImportPlayersComponent, {
+      height: '260px',
+      width: '560px'
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

@@ -16,70 +16,70 @@ export class DataService {
       logo: '../assets/Circle-Cut/ROARING LIONS.png',
       captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
-      owners: [{name:'Arpita Malakar', image:'../assets/OWNERS/ARPITA(1).png'},{name:'Arpita Malakar', image:'../assets/OWNERS/ARPITA(1).png'}],
+      owners: [{name:'Arpita Malakar', image:'../assets/OWNERS/ARPITA(1).png'}],
       remainingAmount: 0
     },
     {
       id:2,
       name: 'DEMOLISHING EXTREMISTS',
       logo: '../assets/Circle-Cut/DEMOLISHING EXTREMISTS.png',
-      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {name:'Kaustav Mukherjee', image:'https://res.cloudinary.com/dznw7lroa/image/upload/0DCEF3BD-EBE6-4EFB-9D56-D19725AE0AE9_dqjidj'},
       players:[],
-      owners: [],
+      owners: [{name:'Anwita', image:'../assets/OWNERS/ANWITA.png'}],
       remainingAmount: 0
     },
     {
       id:3,
       name: 'GLADIATORS',
       logo: '../assets/Circle-Cut/GLADIATORS.png',
-      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {name:'Abhinandan Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/7923DCC0-891E-445F-B333-87437FC7D569_xupmab'},
       players:[],
-      owners: [],
+      owners: [{name:'Shivangi', image:'../assets/OWNERS/SHIVANGI.png'}],
       remainingAmount: 0
     },
     {
       id:4,
       name: 'NAUTICAL NINJAS',
       logo: '../assets/Circle-Cut/NAUTICAL NINJAS.png',
-      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {name:'Soumik Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_2_ejjoib'},
       players:[],
-      owners: [],
+      owners: [{name:'Subhojit', image:'../assets/OWNERS/SUBHOJIT.png'},{name:'Aheli', image:'../assets/OWNERS/AHELI.png'}],
       remainingAmount: 0
     },
     {
       id:5,
       name: 'POWER PHEONIX',
       logo: '../assets/Circle-Cut/POWER PHEONIX.png',
-      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {name:'Ritaban Chakraborty ', image:'https://res.cloudinary.com/dznw7lroa/image/upload/0CA28E01-AEE3-445D-B6B4-0E1C83175D62_bgqmbf'},
       players:[],
-      owners: [],
+      owners: [{name:'Avipsa', image:'../assets/OWNERS/AVIPSA.png'}],
       remainingAmount: 0
     },
     {
       id:6,
       name: 'PROWLING PANTHERS',
       logo: '../assets/Circle-Cut/PROWLING PANTHERS.png',
-      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {name:'Piyas Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_4_xhvvq0'},
       players:[],
-      owners: [],
+      owners: [{name:'Snigdha', image:'../assets/OWNERS/SNIGDHA.png'}],
       remainingAmount: 0
     },
     {
       id:7,
       name: 'SPECIAL 7',
       logo: '../assets/Circle-Cut/SPECIAL 7.png',
-      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {name:'Joydeep Gayen', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_ttmukd'},
       players:[],
-      owners: [],
+      owners: [{name:'Trishnika', image:'../assets/OWNERS/TRISHNIKA.png'}],
       remainingAmount: 0
     },
     {
       id:8,
       name: 'TITANS',
       logo: '../assets/Circle-Cut/TITANS.png',
-      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {name:'Arijit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_3_ux39qf'},
       players:[],
-      owners: [],
+      owners: [{name:'Arpita', image:'../assets/OWNERS/ARPITA.png'},{name:'Moumita', image:'../assets/OWNERS/MAHIE.png'}],
       remainingAmount: 0
     }
   ]

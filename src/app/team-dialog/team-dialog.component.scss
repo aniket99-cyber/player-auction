@@ -1,6 +1,7 @@
 .dialog-container {
   display: flex;
-  justify-content: space-between; /* Space between owner and pyramid */
+  flex-direction: column; /* Stack content vertically by default */
+  justify-content: center;
   align-items: center;
   height: 100%; /* Use full viewport height */
   padding: 20px; /* Adjust padding */
@@ -14,13 +15,13 @@
 
 .owner {
   flex: 0 0 auto; /* Prevent resizing */
-  margin-right: 20px; /* Space between owner and pyramid */
+  margin-bottom: 20px; /* Space between owner and pyramid */
   text-align: center; /* Center the owner's content */
 }
 
 .owner-image {
-  width: 340px; /* Adjust as needed */
-  height: 350px;
+  width: 300px; /* Adjust as needed for laptop screens */
+  height: 310px;
   border-radius: 15px; /* Square image with slightly rounded corners */
   border: 3px solid #ddd;
 }
@@ -28,8 +29,7 @@
 .owner-name {
   margin-top: 10px;
   font-weight: bold;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 20px;
   color: azure;
 }
 
@@ -50,8 +50,8 @@
       text-align: center;
 
       .player-image {
-        width: 150px;
-        height: 150px;
+        width: 120px; /* Adjust size for laptop screens */
+        height: 120px;
         border-radius: 50%; /* Circular images */
         border: 5px solid #000000;
       }
@@ -59,34 +59,40 @@
       .player-name {
         margin-top: 10px;
         font-weight: bold;
-        font-size: 22px;
-        font-weight: 600;
+        font-size: 18px;
         color: azure;
       }
     }
 
     .captain .player-image {
       border-color: rgb(2, 2, 2); /* Highlight captain */
-      width: 250px; /* Adjusted to be more responsive */
-      height: 250px;
+      width: 200px; /* Adjusted to be more responsive */
+      height: 200px;
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1024px) and (max-width: 1600px) {
   .dialog-container {
-    flex-direction: column;
+    flex-direction: row; /* Align content side by side on larger screens */
     align-items: center;
     padding: 10px;
+    height: 100%;
   }
 
   .owner {
-    margin-right: 0;
-    margin-bottom: 20px; /* Space below owner when stacked */
+    margin-right: 20px; /* Space between owner and pyramid */
+    margin-bottom: 50px; /* Reset margin when in row layout */
+  }
+
+  .owner-image {
+    width: 250px; /* Slightly smaller on laptop screens */
+    height: 250px;
+    border-radius: 50%;
   }
 
   .pyramid {
-    max-width: 100%;
+    max-width: 90%; /* Reduce width slightly for laptops */
   }
 
   .pyramid-row .player .player-image {

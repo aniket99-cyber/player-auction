@@ -68,3 +68,32 @@
     border-radius: 16px; /* Adjust the value as needed */
   }
 }
+
+/* Media query for laptop screens */
+@media (min-width: 1024px) and (max-width: 1600px) {
+  #wheelOfFortune {
+    width: 90%; /* Adjust the container to fit within the screen */
+    max-width: 580px; /* Slightly reduce max width for laptops */
+    margin: auto; /* Center the wheel */
+  }
+
+  #wheel {
+    width: 100%; /* Ensure the wheel fits within the container */
+    height: auto;
+  }
+
+  #spin {
+    width: 20%; /* Adjust the size for laptop screens */
+    height: 20%;
+  }
+}
+
+/* Ensure dialog container is responsive */
+::ng-deep .custom-dialog-container .mat-dialog-container {
+  border-radius: 16px; /* Adjust the value as needed */
+  max-width: 100%; /* Ensure the dialog doesn't exceed the screen width */
+  width: 90%; /* Allow the dialog to be responsive */
+  height: auto; /* Maintain aspect ratio */
+  padding: 20px; /* Add some padding for better spacing */
+  box-sizing: border-box; /* Include padding in the width/height */
+}

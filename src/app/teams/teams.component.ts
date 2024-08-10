@@ -50,9 +50,9 @@ export class TeamsComponent {
 
   openTeamDialog(team:any) {
     this.dialog.open(TeamDialogComponent, {
-      width: '80%',
-      height: '80%',
-      data: team
+      data: team,
+      height: '100%',
+      width: '50%',
     });
   }
 }

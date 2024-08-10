@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-  background-image: url('assets/background-image-3.jpg'); /* Path to your background image */
+  background: linear-gradient(45deg, #ff7e5f, #aa9e95);
   background-size: cover; /* Cover the entire background */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
