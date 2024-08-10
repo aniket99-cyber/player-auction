@@ -7,6 +7,8 @@
   flex-direction: column;
   height: 100%; /* Ensure dialog fills the container */
   max-height: 80vh;/* Set a max-height for the dialog */
+  min-height: 250px;
+  min-width: 560px;
 }
 
 .dialog-title {

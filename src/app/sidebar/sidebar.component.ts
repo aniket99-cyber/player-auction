@@ -16,8 +16,6 @@ export class SidebarComponent {
 
   openImportDialog(): void {
     const dialogRef = this.dialog.open(ImportPlayersComponent, {
-      height: '260px',
-      width: '560px'
     });
 
     dialogRef.afterClosed().subscribe((result) => {
