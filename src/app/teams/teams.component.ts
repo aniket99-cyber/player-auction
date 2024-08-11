@@ -33,7 +33,7 @@ export class TeamsComponent {
 
   calculateTotalPointsForAllTeams(): void {
     this.teams.forEach((team:any) => {
-      team.remainingAmount = 8000 - this.calculateTotalPoints(team.id);
+      team.remainingAmount = 6000 - this.calculateTotalPoints(team.id);
     });
   }
 

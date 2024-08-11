@@ -23,14 +23,14 @@
   width: 300px; /* Adjust as needed for laptop screens */
   height: 310px;
   border-radius: 15px; /* Square image with slightly rounded corners */
-  border: 3px solid #ddd;
+  border: 5px solid #000000;
 }
 
 .owner-name {
   margin-top: 10px;
   font-weight: bold;
   font-size: 20px;
-  color: azure;
+  color: rgb(16, 17, 17);
 }
 
 .pyramid {
@@ -60,7 +60,7 @@
         margin-top: 10px;
         font-weight: bold;
         font-size: 18px;
-        color: azure;
+        color: rgb(14, 17, 17);
       }
     }
 
