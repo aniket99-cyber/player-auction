@@ -14,7 +14,7 @@ export class DataService {
       id:1,
       name: 'ROARING LIONS',
       logo: '../assets/Circle-Cut/ROARING LIONS.png',
-      captain: {name:'Soumyajit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {name:'Soumyajit Sildas', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
       players:[],
       owners: [{name:'Arpita Malakar', image:'../assets/OWNERS/ARPITA(1).png'}],
       remainingAmount: 0
