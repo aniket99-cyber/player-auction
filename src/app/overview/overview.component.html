@@ -8,8 +8,7 @@
         <span></span>
       </div>
       <div class="date-time">
-        <span><strong>Fri 17 June 2022</strong></span>
-        <span><strong> 20:00</strong></span>
+        <span><strong>{{currentDateTime}}</strong></span>
       </div>
     </div>
   </div>
@@ -25,6 +24,10 @@
         <div class="table-container">
           <h3>Sold Players Overview</h3>
           <div class=" table-container table-wrapper">
+            <div class="table-header">
+              <!-- <button class="download-btn csv-btn" (click)="downloadCSVSold()">Download CSV</button> -->
+              <button class="download-btn excel-btn" (click)="downloadExcelSold()">Download Excel</button>
+            </div>
             <table>
               <thead>
                 <tr>
@@ -38,7 +41,7 @@
               </thead>
               <tbody>
                 <!-- Add rows here -->
-                 @for (player of soldPlayers; track $index) {
+                 @for (player of soldSortedPlayers; track $index) {
                   <tr>
                     <td><img [src]="player.image" alt="{{ player.name }}" width="50" /></td>
                     <td>{{ player.name }}</td>
@@ -99,7 +102,7 @@
 
       <div class="stats">
         <div class="stat-card">
-          <img src="../../assets/BANNER/Green and Yellow Simple Clean Shoes Sale Banner - 2.png" alt="Powered by">
+          <img src="../../assets/BANNER/Green and Yellow Simple Clean Shoes Sale Banner - 8.png" alt="Powered by">
         </div>
       </div>
     </div>

@@ -52,7 +52,7 @@ export class TeamsComponent {
     this.dialog.open(TeamDialogComponent, {
       data: team,
       height: '100%',
-      width: '50%',
+      width: '55%',
     });
   }
 }

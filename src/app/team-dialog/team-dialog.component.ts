@@ -25,7 +25,7 @@ export class TeamDialogComponent implements OnInit {
     const pyramidRows = [];
     let playersIndex = 0;
 
-    const rowStructure = [2, 2]; // Number of players in each row
+    const rowStructure = [2,3]; // Number of players in each row
 
     for (let rowCount of rowStructure) {
       const row = playersWithoutCaptain.slice(playersIndex, playersIndex + rowCount);

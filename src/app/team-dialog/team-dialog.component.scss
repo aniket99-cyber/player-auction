@@ -43,7 +43,7 @@
   .pyramid-row {
     display: flex;
     justify-content: center;
-    margin: 20px 0; /* Increase margin for more spacing */
+    margin: 15px 0; /* Increase margin for more spacing */
 
     .player {
       margin: 0 15px; /* Horizontal margin between players */
@@ -82,17 +82,18 @@
 
   .owner {
     margin-right: 20px; /* Space between owner and pyramid */
+    margin-left: 20px;
     margin-bottom: 50px; /* Reset margin when in row layout */
   }
 
   .owner-image {
-    width: 250px; /* Slightly smaller on laptop screens */
-    height: 250px;
+    width: 200px; /* Slightly smaller on laptop screens */
+    height: 200px;
     border-radius: 50%;
   }
 
   .pyramid {
-    max-width: 90%; /* Reduce width slightly for laptops */
+    max-width: 100%; /* Reduce width slightly for laptops */
   }
 
   .pyramid-row .player .player-image {
