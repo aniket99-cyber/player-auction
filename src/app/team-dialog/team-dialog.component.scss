@@ -1,6 +1,9 @@
 .dialog-container {
+  flex-direction: row; /* Align content side by side on larger screens */
+  align-items: center;
+  padding: 10px;
+  height: 100%;
   display: flex;
-  flex-direction: column; /* Stack content vertically by default */
   justify-content: center;
   align-items: center;
   height: 100%; /* Use full viewport height */
@@ -20,9 +23,9 @@
 }
 
 .owner-image {
-  width: 300px; /* Adjust as needed for laptop screens */
-  height: 310px;
-  border-radius: 15px; /* Square image with slightly rounded corners */
+  width: 200px; /* Slightly smaller on laptop screens */
+  height: 200px;
+  border-radius: 50%;
   border: 5px solid #000000;
 }
 
