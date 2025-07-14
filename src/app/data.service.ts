@@ -14,72 +14,72 @@ export class DataService {
       id:1,
       name: 'ROARING LIONS',
       logo: '../assets/Circle-Cut/ROARING LIONS.png',
-      captain: {name:'Soumyajit Sildas', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_phvxyd'},
+      captain: {},
       players:[],
-      owners: [{name:'Arpita Malakar', image:'../assets/OWNERS/ARPITA(1).png'}],
+      owners: {},
       remainingAmount: 0
     },
     {
       id:2,
       name: 'DEMOLISHING EXTREMISTS',
       logo: '../assets/Circle-Cut/DEMOLISHING EXTREMISTS.png',
-      captain: {name:'Kaustav Mukherjee', image:'https://res.cloudinary.com/dznw7lroa/image/upload/0DCEF3BD-EBE6-4EFB-9D56-D19725AE0AE9_dqjidj'},
+      captain: {},
       players:[],
-      owners: [{name:'Anwita', image:'../assets/OWNERS/ANWITA.png'}],
+      owners: {},
       remainingAmount: 0
     },
     {
       id:3,
       name: 'GLADIATORS',
       logo: '../assets/Circle-Cut/GLADIATORS.png',
-      captain: {name:'Abhinandan Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/7923DCC0-891E-445F-B333-87437FC7D569_xupmab'},
+      captain: {},
       players:[],
-      owners: [{name:'Shivangi', image:'../assets/OWNERS/SHIVANGI.png'}],
+      owners: {},
       remainingAmount: 0
     },
     {
       id:4,
       name: 'NAUTICAL NINJAS',
       logo: '../assets/Circle-Cut/NAUTICAL NINJAS.png',
-      captain: {name:'Soumik Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_2_ejjoib'},
+      captain: {},
       players:[],
-      owners: [{name:'Subhojit', image:'../assets/OWNERS/SUBHOJIT.png'},{name:'Aheli', image:'../assets/OWNERS/AHELI.png'}],
+      owners: {},
       remainingAmount: 0
     },
     {
       id:5,
       name: 'POWER PHEONIX',
       logo: '../assets/Circle-Cut/POWER PHEONIX.png',
-      captain: {name:'Ritaban Chakraborty ', image:'https://res.cloudinary.com/dznw7lroa/image/upload/0CA28E01-AEE3-445D-B6B4-0E1C83175D62_bgqmbf'},
+      captain: {},
       players:[],
-      owners: [{name:'Avipsa', image:'../assets/OWNERS/AVIPSA.png'}],
+      owners: {},
       remainingAmount: 0
     },
     {
       id:6,
       name: 'PROWLING PANTHERS',
       logo: '../assets/Circle-Cut/PROWLING PANTHERS.png',
-      captain: {name:'Piyas Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_4_xhvvq0'},
+      captain: {},
       players:[],
-      owners: [{name:'Snigdha', image:'../assets/OWNERS/SNIGDHA.png'}],
+      owners: {},
       remainingAmount: 0
     },
     {
       id:7,
-      name: 'SPECIAL 7',
+      name: 'SHARK BOYS',
       logo: '../assets/Circle-Cut/SPECIAL 7.png',
-      captain: {name:'Joydeep Gayen', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_ttmukd'},
+      captain: {},
       players:[],
-      owners: [{name:'Trishnika', image:'../assets/OWNERS/TRISHNIKA.png'}],
+      owners: {},
       remainingAmount: 0
     },
     {
       id:8,
       name: 'TITANS',
       logo: '../assets/Circle-Cut/TITANS.png',
-      captain: {name:'Arijit Sil Das', image:'https://res.cloudinary.com/dznw7lroa/image/upload/Blue_Football_League_Winning_Team_Sports_Instagram_Post_3_ux39qf'},
+      captain: {},
       players:[],
-      owners: [{name:'Arpita', image:'../assets/OWNERS/ARPITA.png'},{name:'Moumita', image:'../assets/OWNERS/MAHIE.png'}],
+      owners: {},
       remainingAmount: 0
     }
   ]
@@ -132,6 +132,9 @@ export class DataService {
         team.players.push(value.value);
       }
     });
+
+    console.log(this.teams);
+
     localStorage.setItem('teams', JSON.stringify(this.teams))
   }
 
@@ -171,4 +174,9 @@ export class DataService {
     this.optionSource.next(newOptions);  // Update the BehaviorSubject
     this.persistOptions();  // Persist the new options in local storage
   }
+
+  updateTeams(updatedTeams: any[]): void {
+  this.teams = updatedTeams;
+  localStorage.setItem('teams', JSON.stringify(this.teams));
+}
 }

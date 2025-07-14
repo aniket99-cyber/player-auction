@@ -1,0 +1,53 @@
+<div class="team-container">
+  <div *ngFor="let team of teams; let i = index" class="team-card">
+    <div class="team-header">
+      <img [src]="team.logo" alt="Team Logo" class="team-logo" />
+      <h2>{{ team.name }}</h2>
+    </div>
+
+    <!-- Captain -->
+    <div class="form-group">
+      <label>Captain <span class="required">*</span></label>
+      <select
+        class="dropdown"
+        [formControl]="getFormControl(teamFormsArray()[i], 'captain')"
+      >
+        <option [ngValue]="null" disabled selected>Select Captain</option>
+        <option *ngFor="let player of importedPlayers" [ngValue]="player">
+          {{ player.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Owners -->
+    <div class="form-group">
+      <label>Owners <span class="required">*</span></label>
+      <select
+        class="dropdown"
+        [formControl]="getFormControl(teamFormsArray()[i], 'owners')"
+      >
+        <option *ngFor="let player of importedPlayers" [ngValue]="player">
+          {{ player.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Retention -->
+    <div class="form-group">
+      <label>Retention Player (Optional)</label>
+      <select
+        class="dropdown"
+        [formControl]="getFormControl(teamFormsArray()[i], 'retentionPlayer')"
+      >
+        <option [ngValue]="null" disabled selected>Select Retention</option>
+        <option *ngFor="let player of importedPlayers" [ngValue]="player">
+          {{ player.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="submit-container">
+    <button (click)="submit()" class="submit-btn">Finalize Teams</button>
+  </div>
+</div>

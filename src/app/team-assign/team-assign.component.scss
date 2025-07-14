@@ -1,0 +1,88 @@
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #111;
+  color: #fff;
+}
+
+.team-card {
+  border: 1px solid #444;
+  background: #1c1c1c;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 20px;
+    margin-left: 15px;
+    color: #fff;
+  }
+}
+
+.team-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #ccc;
+
+    .required {
+      color: red;
+    }
+  }
+
+  select.dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #fff;
+    color: #000;
+  }
+
+  select.dropdown:focus {
+    outline: none;
+    border-color: #fff;
+  }
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.submit-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: #ccc;
+  }
+}
