@@ -49,7 +49,7 @@ export class DataService {
     {
       id:5,
       name: 'POWER PHEONIX',
-      logo: '../assets/Circle-Cut/POWER PHEONIX.png',
+      logo: '../assets/Circle-Cut/POWERPHOENIX.png',
       captain: {},
       players:[],
       owners: {},
@@ -67,7 +67,7 @@ export class DataService {
     {
       id:7,
       name: 'SHARK BOYS',
-      logo: '../assets/Circle-Cut/SPECIAL 7.png',
+      logo: '../assets/Circle-Cut/SHARK BOYS.png',
       captain: {},
       players:[],
       owners: {},
@@ -82,6 +82,17 @@ export class DataService {
       owners: {},
       remainingAmount: 0
     }
+  ]
+
+  owners:any[] = [
+    {id:1, name:"Avipsa",image: '../assets/OWNERS/'},
+    {id:2, name:"Mahie",image: '../assets/OWNERS/'},
+    {id:3, name:"Remoshmita",image: '../assets/OWNERS/'},
+    {id:4, name:"Riddhi",image: '../assets/OWNERS/'},
+    {id:5, name:"Shivangi",image: '../assets/OWNERS/'},
+    {id:6, name:"Snigdha",image: '../assets/OWNERS/'},
+    {id:7, name:"Tisha",image: '../assets/OWNERS/'},
+    {id:8, name:"Trishnika",image: '../assets/OWNERS/'}
   ]
 
   public optionSource = new BehaviorSubject<any[]>(this.getOptions());

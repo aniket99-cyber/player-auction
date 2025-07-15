@@ -1,11 +1,14 @@
 <div class="dialog-container">
   <!-- Left Side: Owner Image and Name -->
-  <div class="owner">
-   @for (owner of teamData.owners; track $index) {
-      <img [src]="owner.image" alt="{{ owner.name }}" class="owner-image">
-      <p class="owner-name">{{owner.name }}</p>
+   @if(teamData.owners.length>0){
+    <div class="owner">
+      @for (owner of teamData.owners; track $index) {
+          <img [src]="owner.image" alt="{{ owner.name }}" class="owner-image">
+          <p class="owner-name">{{owner.name }}</p>
+      }
+      </div>
    }
-  </div>
+
 
   <!-- Right Side: Players in Pyramid Structure -->
   <div class="pyramid">

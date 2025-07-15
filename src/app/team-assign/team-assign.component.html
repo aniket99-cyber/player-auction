@@ -21,13 +21,14 @@
 
     <!-- Owners -->
     <div class="form-group">
-      <label>Owners <span class="required">*</span></label>
+     <label class="form-label">Owners <span class="required">*</span></label>
       <select
         class="dropdown"
         [formControl]="getFormControl(teamFormsArray()[i], 'owners')"
       >
-        <option *ngFor="let player of importedPlayers" [ngValue]="player">
-          {{ player.name }}
+        <option [ngValue]="null" disabled>Select Owner</option>
+        <option *ngFor="let owner of owners" [ngValue]="owner">
+          {{ owner.name }}
         </option>
       </select>
     </div>

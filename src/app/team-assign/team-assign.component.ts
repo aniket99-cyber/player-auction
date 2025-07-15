@@ -17,12 +17,13 @@ export class TeamAssignComponent implements OnInit, OnDestroy {
   importedPlayers: any[] = [];
   teamForms: WritableSignal<FormGroup[]> = signal([]);
   subscription!: Subscription;
+  owners: any[] = [];
 
   constructor(private fb: FormBuilder, private dataService: DataService) {}
 
   ngOnInit(): void {
     this.teams = this.dataService.teams;
-
+    this.owners = this.dataService.owners;
     const forms = this.teams.map(() =>
       this.fb.group({
         captain: [null, Validators.required],
@@ -54,6 +55,7 @@ export class TeamAssignComponent implements OnInit, OnDestroy {
 submit(): void {
   const allForms = this.teamFormsArray();
   const selectedPlayerIds = new Set<number>();
+  const selectedOwnerIds = new Set<number>();
   let isValid = true;
   let errorMessage = '';
   const tempTeams = [];
@@ -73,30 +75,43 @@ submit(): void {
     const rawOwners = form.get('owners')?.value;
     const owners = Array.isArray(rawOwners) ? rawOwners : rawOwners ? [rawOwners] : [];
 
-    // Required fields check
+    // Required field check
     if (!captain || owners.length === 0) {
       isValid = false;
       errorMessage = `Please select a captain and at least one owner for team: ${team.name}`;
       break;
     }
 
-    // Unique player check
-    const selections = [captain, retention, ...owners].filter(Boolean);
-    for (const player of selections) {
+    // Captain and retention duplication check
+    const playerSelections = [captain, retention].filter(Boolean);
+    for (const player of playerSelections) {
       if (player?.id) {
         if (selectedPlayerIds.has(player.id)) {
           isValid = false;
-          errorMessage = `Player "${player.name}" is assigned to multiple teams or roles.`;
+          errorMessage = `Player "${player.name}" is already selected as captain or retention in another team.`;
           break;
         }
         selectedPlayerIds.add(player.id);
       }
     }
 
+    // Owner duplication check
+    for (const owner of owners) {
+      if (owner?.id) {
+        if (selectedOwnerIds.has(owner.id)) {
+          isValid = false;
+          errorMessage = `Owner "${owner.name}" is already assigned to another team.`;
+          break;
+        }
+        selectedOwnerIds.add(owner.id);
+      }
+    }
+
     if (!isValid) break;
 
-    // Add retention as first player
+    // Build updated players array
     const updatedPlayers = [...team.players];
+
     if (retention) {
       const retentionSoldData = {
         value: {
@@ -117,13 +132,12 @@ submit(): void {
     });
   }
 
-  // Stop if invalid
   if (!isValid) {
     alert(`❌ ${errorMessage}`);
     return;
   }
 
-  // Add retention players as winners (sold for 1500 points)
+  // Add retention to winners
   tempTeams.forEach((team, i) => {
     const form = allForms[i];
     const retention = form.get('retentionPlayer')?.value;
@@ -140,35 +154,25 @@ submit(): void {
     }
   });
 
-  // ✅ Update final teams in data service
+  // Save final teams
   this.dataService.updateTeams(tempTeams);
 
-  // ✅ Remove assigned players (captains, retention, owners) from imported list
-  const assignedIds = new Set<number>();
-
+  // Remove used players (captain, retention) from imported players
+  const usedPlayerIds = new Set<number>();
   allForms.forEach((form) => {
     const captain = form.get('captain')?.value;
     const retention = form.get('retentionPlayer')?.value;
-    const rawOwners = form.get('owners')?.value;
-    const owners = Array.isArray(rawOwners) ? rawOwners : rawOwners ? [rawOwners] : [];
-
-    if (captain?.id) assignedIds.add(captain.id);
-    if (retention?.id) assignedIds.add(retention.id);
-    owners.forEach(owner => {
-      if (owner?.id) assignedIds.add(owner.id);
-    });
+    if (captain?.id) usedPlayerIds.add(captain.id);
+    if (retention?.id) usedPlayerIds.add(retention.id);
   });
 
-  // Get current optionSource (imported players) and remove assigned
   const currentOpts = this.dataService.optionSource.getValue() || [];
-  const remainingPlayers = currentOpts.filter(player => !assignedIds.has(player.id));
-
-  // ✅ Update options with only remaining players
+  const remainingPlayers = currentOpts.filter(player => !usedPlayerIds.has(player.id));
   this.dataService.updateDefaultOptions(remainingPlayers);
 
-  console.log('✅ Final teams updated');
-  console.log('✅ Remaining players updated in optionSource', remainingPlayers);
+  console.log('✅ Teams finalized and updated.');
 }
+
 
 
 }
