@@ -85,14 +85,14 @@ export class DataService {
   ]
 
   owners:any[] = [
-    {id:1, name:"Avipsa",image: '../assets/OWNERS/'},
-    {id:2, name:"Mahie",image: '../assets/OWNERS/'},
-    {id:3, name:"Remoshmita",image: '../assets/OWNERS/'},
-    {id:4, name:"Riddhi",image: '../assets/OWNERS/'},
-    {id:5, name:"Shivangi",image: '../assets/OWNERS/'},
-    {id:6, name:"Snigdha",image: '../assets/OWNERS/'},
-    {id:7, name:"Tisha",image: '../assets/OWNERS/'},
-    {id:8, name:"Trishnika",image: '../assets/OWNERS/'}
+    {id:1, name:"Avipsa",image: '../assets/OWNERS/avipsa.jpeg'},
+    {id:2, name:"Mahie",image: '../assets/OWNERS/mahie.jpeg'},
+    {id:3, name:"Remosmita",image: '../assets/OWNERS/remosmita.jpeg'},
+    {id:4, name:"Riddhi",image: '../assets/OWNERS/riddhi.jpeg'},
+    {id:5, name:"Shivangi",image: '../assets/OWNERS/shivangi.jpeg'},
+    {id:6, name:"Snigdha",image: '../assets/OWNERS/snigdha.jpeg'},
+    {id:7, name:"Tisha",image: '../assets/OWNERS/tisha.jpeg'},
+    {id:8, name:"Trishnika",image: '../assets/OWNERS/trishnika.jpeg'}
   ]
 
   public optionSource = new BehaviorSubject<any[]>(this.getOptions());

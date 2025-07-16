@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-assign',
@@ -19,7 +20,7 @@ export class TeamAssignComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   owners: any[] = [];
 
-  constructor(private fb: FormBuilder, private dataService: DataService) {}
+  constructor(private fb: FormBuilder, private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {
     this.teams = this.dataService.teams;
@@ -171,6 +172,7 @@ submit(): void {
   this.dataService.updateDefaultOptions(remainingPlayers);
 
   console.log('✅ Teams finalized and updated.');
+  this.router.navigate(['/teams']);
 }
 
 
