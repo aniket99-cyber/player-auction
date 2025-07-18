@@ -17,7 +17,9 @@ export class DataService {
       captain: {},
       players:[],
       owners: {},
-      remainingAmount: 0
+      remainingAmount: 0,
+      manualBonus: 0,
+      manualHistory:[],
     },
     {
       id:2,
@@ -26,7 +28,9 @@ export class DataService {
       captain: {},
       players:[],
       owners: {},
-      remainingAmount: 0
+      remainingAmount: 0,
+      manualBonus: 0,
+      manualHistory:[],
     },
     {
       id:3,
@@ -35,7 +39,9 @@ export class DataService {
       captain: {},
       players:[],
       owners: {},
-      remainingAmount: 0
+      remainingAmount: 0,
+      manualBonus: 0,
+      manualHistory:[],
     },
     {
       id:4,
@@ -44,7 +50,9 @@ export class DataService {
       captain: {},
       players:[],
       owners: {},
-      remainingAmount: 0
+      remainingAmount: 0,
+      manualBonus: 0,
+      manualHistory:[],
     },
     {
       id:5,
@@ -53,7 +61,9 @@ export class DataService {
       captain: {},
       players:[],
       owners: {},
-      remainingAmount: 0
+      remainingAmount: 0,
+      manualBonus: 0,
+      manualHistory:[],
     },
     {
       id:6,
@@ -62,7 +72,9 @@ export class DataService {
       captain: {},
       players:[],
       owners: {},
-      remainingAmount: 0
+      remainingAmount: 0,
+      manualBonus: 0,
+      manualHistory:[],
     },
     {
       id:7,
@@ -71,7 +83,9 @@ export class DataService {
       captain: {},
       players:[],
       owners: {},
-      remainingAmount: 0
+      remainingAmount: 0,
+      manualBonus: 0,
+      manualHistory:[],
     },
     {
       id:8,
@@ -80,7 +94,9 @@ export class DataService {
       captain: {},
       players:[],
       owners: {},
-      remainingAmount: 0
+      remainingAmount: 0,
+      manualBonus: 0,
+      manualHistory:[],
     }
   ]
 
@@ -136,17 +152,29 @@ export class DataService {
     this.persistOptions();
   }
 
-  addWinner(value: any): void {
-    // Find the team with the matching ID and add the player to its players array
-    this.teams.forEach(team => {
-      if (team.id === Number(value.value.team)) {
-        team.players.push(value.value);
-      }
-    });
+ addWinner(value: any): void {
+  const storedTeams = localStorage.getItem('teams');
+  this.teams = storedTeams ? JSON.parse(storedTeams) : [];
+  console.log(this.teams);
 
-    console.log(this.teams);
+  this.teams.forEach(team => {
+    if (team.id === Number(value.value.team)) {
+      // Add player
+      team.players.push(value.value);
 
-    localStorage.setItem('teams', JSON.stringify(this.teams))
+      // Ensure manualBonus is initialized
+      team.manualBonus = team.manualBonus || 0;
+
+      // Calculate total spent
+      const totalSpent = team.players.reduce((sum: number, p: any) => sum + (p.points || 0), 0);
+
+      // Correctly calculate remainingAmount with manualBonus
+      team.remainingAmount = 10000 - totalSpent + team.manualBonus;
+    }
+  });
+
+  console.log(this.teams);
+  localStorage.setItem('teams', JSON.stringify(this.teams));
   }
 
   addUnsold(value: any): void {

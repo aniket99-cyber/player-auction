@@ -16,7 +16,6 @@ export class TeamAssignGuard implements CanActivate {
       this.router.navigate(['/teams']);
       return false;
     }
-
     return true;
   }
 }

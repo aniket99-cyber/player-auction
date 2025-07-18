@@ -89,3 +89,23 @@ h3{
   background-color: #333;
   border-radius: 5px;
 }
+
+.remaining-amount {
+  margin-top: 10px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.update-amount {
+  margin-top: 10px;
+}
+
+.input-field {
+  width: 100px;
+  margin-right: 8px;
+  padding: 4px;
+}

@@ -1,5 +1,6 @@
 <div class="team-container">
   <div *ngFor="let team of teams; let i = index" class="team-card">
+    <!-- Team Header -->
     <div class="team-header">
       <img [src]="team.logo" alt="Team Logo" class="team-logo" />
       <h2>{{ team.name }}</h2>
@@ -8,20 +9,25 @@
     <!-- Captain -->
     <div class="form-group">
       <label>Captain <span class="required">*</span></label>
-      <select
-        class="dropdown"
+      <ng-select
+        [items]="importedPlayers"
+        bindLabel="name"
+        [searchable]="true"
         [formControl]="getFormControl(teamFormsArray()[i], 'captain')"
+        class="dropdown"
       >
-        <option [ngValue]="null" disabled selected>Select Captain</option>
-        <option *ngFor="let player of importedPlayers" [ngValue]="player">
-          {{ player.name }}
-        </option>
-      </select>
+        <ng-template ng-option-tmp let-item="item">
+          <div style="display: flex; align-items: center;">
+            <img *ngIf="item.image" [src]="item.image" width="20" height="20" style="border-radius: 50%; margin-right: 8px;" />
+            {{ item.name }}
+          </div>
+        </ng-template>
+      </ng-select>
     </div>
 
     <!-- Owners -->
     <div class="form-group">
-     <label class="form-label">Owners <span class="required">*</span></label>
+      <label class="form-label">Owners <span class="required">*</span></label>
       <select
         class="dropdown"
         [formControl]="getFormControl(teamFormsArray()[i], 'owners')"
@@ -33,21 +39,27 @@
       </select>
     </div>
 
-    <!-- Retention -->
+    <!-- Retention Player -->
     <div class="form-group">
       <label>Retention Player (Optional)</label>
-      <select
-        class="dropdown"
+      <ng-select
+        [items]="importedPlayers"
+        bindLabel="name"
+        [searchable]="true"
         [formControl]="getFormControl(teamFormsArray()[i], 'retentionPlayer')"
+        class="dropdown"
       >
-        <option [ngValue]="null" disabled selected>Select Retention</option>
-        <option *ngFor="let player of importedPlayers" [ngValue]="player">
-          {{ player.name }}
-        </option>
-      </select>
+        <ng-template ng-option-tmp let-item="item">
+          <div style="display: flex; align-items: center;">
+            <img *ngIf="item.image" [src]="item.image" width="20" height="20" style="border-radius: 50%; margin-right: 8px;" />
+            {{ item.name }}
+          </div>
+        </ng-template>
+      </ng-select>
     </div>
   </div>
 
+  <!-- Submit Button -->
   <div class="submit-container">
     <button (click)="submit()" class="submit-btn">Finalize Teams</button>
   </div>

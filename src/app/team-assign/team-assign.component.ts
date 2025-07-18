@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit, signal, ViewEncapsulation, WritableSignal } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-team-assign',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgSelectModule],
+  imports: [CommonModule, ReactiveFormsModule, NgSelectModule, FormsModule],
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './team-assign.component.html',
   styleUrl: './team-assign.component.scss'
 })
@@ -19,25 +20,39 @@ export class TeamAssignComponent implements OnInit, OnDestroy {
   teamForms: WritableSignal<FormGroup[]> = signal([]);
   subscription!: Subscription;
   owners: any[] = [];
+  captainSearch: string[] = [];
+  retentionSearch: string[] = [];
 
   constructor(private fb: FormBuilder, private dataService: DataService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.teams = this.dataService.teams;
-    this.owners = this.dataService.owners;
-    const forms = this.teams.map(() =>
-      this.fb.group({
-        captain: [null, Validators.required],
-        owners: [null, Validators.required],
-        retentionPlayer: [null]
-      })
-    );
-    this.teamForms.set(forms);
 
-    this.subscription = this.dataService.option$.subscribe(players => {
-      this.importedPlayers = players ?? [];
-    });
-  }
+
+ngOnInit(): void {
+  this.teams = this.dataService.teams;
+  this.owners = this.dataService.owners;
+  const forms = this.teams.map(() =>
+    this.fb.group({
+      captain: [null, Validators.required],
+      owners: [null, Validators.required],
+      retentionPlayer: [null]
+    })
+  );
+  this.teamForms.set(forms);
+
+  // Initialize search arrays
+  this.captainSearch = Array(this.teams.length).fill('');
+  this.retentionSearch = Array(this.teams.length).fill('');
+
+  this.subscription = this.dataService.option$.subscribe(players => {
+    this.importedPlayers = players ?? [];
+  });
+}
+
+filterPlayers(search: string): any[] {
+  if (!search?.trim()) return this.importedPlayers;
+  const lowerSearch = search.toLowerCase();
+  return this.importedPlayers.filter(p => p.name.toLowerCase().includes(lowerSearch));
+}
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
@@ -118,7 +133,7 @@ submit(): void {
         value: {
           ...retention,
           team: team.id,
-          points: 1500
+          points: 2000
         }
       };
       updatedPlayers.unshift(retentionSoldData.value);
@@ -129,7 +144,7 @@ submit(): void {
       captain,
       owners,
       players: updatedPlayers,
-      remainingAmount: retention ? team.remainingAmount + 1500 : team.remainingAmount
+      remainingAmount: retention ? team.remainingAmount + 2000 : team.remainingAmount,
     });
   }
 
@@ -148,7 +163,7 @@ submit(): void {
         value: {
           ...retention,
           team: team.id,
-          points: 1500
+          points: 2000
         }
       };
       this.dataService.addWinner(retentionSoldData);
